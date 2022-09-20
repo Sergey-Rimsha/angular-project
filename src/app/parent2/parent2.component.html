@@ -1,0 +1,20 @@
+<div>
+  <h2>1-3) array fruits</h2>
+  <div *ngFor="let el of fruits; even as even; odd as odd">
+    <div [ngClass]="{ red: even, green: odd }">name: {{ el.name }} price: {{ el.price }}</div>
+  </div>
+</div>
+
+<div>
+  <h2>4) array fruits price > 7</h2>
+  <div *ngFor="let el of fruits">
+    <ng-container *ngIf="el.price > 7"> name: {{ el.name }} price: {{ el.price }} </ng-container>
+  </div>
+</div>
+
+<div>
+  <h2>5) array fruits price > 15</h2>
+  <ng-container *ngFor="let el of fruits">
+    <div [ngClass]="{ big: el.price > 15 }">name: {{ el.name }} price: {{ el.price }}</div>
+  </ng-container>
+</div>

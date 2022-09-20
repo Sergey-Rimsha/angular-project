@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core'
+import { Component, EventEmitter, Input, Output } from '@angular/core'
 import { Address } from '../parent.component'
 
 export interface Grade {
@@ -31,5 +31,6 @@ export class ChildComponent {
 
   sendGrateArrHandler() {
     this.sendGrateArrHandlerEvent.emit(this.inputGrade)
+    this.inputGrade = ''
   }
 }

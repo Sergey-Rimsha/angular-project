@@ -13,6 +13,7 @@ interface IUser {
 export class AppComponent {
   // Property binding
   isAppLoading = true
+
   constructor() {
     setTimeout(() => {
       this.isAppLoading = false
@@ -40,6 +41,7 @@ export class AppComponent {
       this.text = (event.currentTarget as HTMLInputElement).value
     }
   }
+
   //Two-way binding
   textTwoWay = ''
 }

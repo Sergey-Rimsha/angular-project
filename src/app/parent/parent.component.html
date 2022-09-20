@@ -16,8 +16,12 @@
 
   <div>
     grade
-    <span>
-      {{ grades | json }}
-    </span>
+    <!--    <span>-->
+    <!--      {{ grades | json }}-->
+    <!--    </span>-->
+    <div *ngFor="let el of grades; index as i; count as count; even as even">
+      <b>{{ count }}</b>
+      {{ i }} - {{ el }} even: {{ even }}
+    </div>
   </div>
 </div>

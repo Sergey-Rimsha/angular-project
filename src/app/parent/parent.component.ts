@@ -36,5 +36,4 @@ export class ParentComponent {
   getGradeArr(grade: string) {
     this.grades.push(grade)
   }
-
 }

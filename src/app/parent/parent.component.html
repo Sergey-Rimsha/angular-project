@@ -1,0 +1,10 @@
+<div>
+  <h2>parent works! {{ name }} {{ surname }} {{ city }}</h2>
+  <div>
+    from:
+    <p>{{ address.city }}</p>
+    <p>{{ address.street }}</p>
+    <p>{{ address.house }}</p>
+  </div>
+  <inst-child [surnameProps]="surname" [city]="city" [address]="address"></inst-child>
+</div>

@@ -11,6 +11,14 @@ interface IUser {
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  // Property binding
+  isAppLoading = true
+  constructor() {
+    setTimeout(() => {
+      this.isAppLoading = false
+    }, 3000)
+  }
+
   title = 'angular-project'
   appTitle: string = 'Instagram'
 
@@ -19,12 +27,19 @@ export class AppComponent {
     name: 'Sergey',
   }
 
-  // Property binding
-  isAppLoading = true
-
-  constructor() {
-    setTimeout(() => {
-      this.isAppLoading = false
-    }, 3000)
+  // event binding
+  changeTitleHandler() {
+    this.title = 'Angular!!!'
   }
+
+  // event binding input
+  text = ''
+
+  changeTextHandler($event: Event) {
+    if (event) {
+      this.text = (event.currentTarget as HTMLInputElement).value
+    }
+  }
+  //Two-way binding
+  textTwoWay = ''
 }

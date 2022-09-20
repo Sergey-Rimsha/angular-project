@@ -9,3 +9,21 @@
   <h3>Property binding</h3>
   <button [disabled]="isAppLoading">send</button>
 </div>
+<div>
+  <h3>Event binding</h3>
+  <h4>{{ title }}</h4>
+  <button (click)="changeTitleHandler()">change title</button>
+</div>
+
+<div>
+  <h3>Event binding input</h3>
+  <h4>{{ text }}</h4>
+  <input type="text" (keyup.enter)="changeTextHandler($event)" />
+  <!--<input type="text" (input)="changeTextHandler($event)" />-->
+</div>
+
+<div>
+  <h3>Two-way binding</h3>
+  <h4>{{ textTwoWay }}</h4>
+  <input type="text" [(ngModel)]="textTwoWay" />
+</div>

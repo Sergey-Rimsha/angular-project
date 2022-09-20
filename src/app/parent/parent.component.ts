@@ -30,4 +30,11 @@ export class ParentComponent {
     this.math = value.math
     this.physic = value.physic
   }
+
+  grades: string[] = ['math: 5', 'english: 2']
+
+  getGradeArr(grade: string) {
+    this.grades.push(grade)
+  }
+
 }

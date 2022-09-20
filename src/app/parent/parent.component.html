@@ -11,5 +11,13 @@
     [city]="city"
     [address]="address"
     (sendGradeEvent)="getGrade($event)"
+    (sendGrateArrHandlerEvent)="getGradeArr($event)"
   ></inst-child>
+
+  <div>
+    grade
+    <span>
+      {{ grades | json }}
+    </span>
+  </div>
 </div>

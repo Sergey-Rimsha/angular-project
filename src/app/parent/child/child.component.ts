@@ -24,4 +24,12 @@ export class ChildComponent {
     const physic = 10
     this.sendGradeEvent.emit({ math, physic })
   }
+
+  @Output() sendGrateArrHandlerEvent = new EventEmitter<string>()
+
+  inputGrade = ''
+
+  sendGrateArrHandler() {
+    this.sendGrateArrHandlerEvent.emit(this.inputGrade)
+  }
 }

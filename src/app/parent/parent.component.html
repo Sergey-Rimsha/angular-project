@@ -25,3 +25,12 @@
     </div>
   </div>
 </div>
+
+<div>
+  <div *ngFor="let el of lessons">
+    <h3>{{ el.title }}</h3>
+    <div *ngFor="let grade of el.weekGrades">
+      <h4>{{ grade.gradeItem }}</h4>
+    </div>
+  </div>
+</div>

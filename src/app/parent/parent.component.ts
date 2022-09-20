@@ -7,6 +7,17 @@ export interface Address {
   house: number
 }
 
+interface WeekGrade {
+  id: number
+  gradeItem: number
+}
+
+interface Lesson {
+  id: number
+  title: string
+  weekGrades: WeekGrade[]
+}
+
 @Component({
   selector: 'inst-parent',
   templateUrl: './parent.component.html',
@@ -36,4 +47,16 @@ export class ParentComponent {
   getGradeArr(grade: string) {
     this.grades.push(grade)
   }
+
+  lessons: Lesson[] = [
+    {
+      id: 0,
+      title: 'Math',
+      weekGrades: [
+        { id: 0, gradeItem: 4 },
+        { id: 1, gradeItem: 3 },
+        { id: 2, gradeItem: 1 },
+      ],
+    },
+  ]
 }

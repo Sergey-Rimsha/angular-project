@@ -6,5 +6,10 @@
     <p>{{ address.street }}</p>
     <p>{{ address.house }}</p>
   </div>
-  <inst-child [surnameProps]="surname" [city]="city" [address]="address"></inst-child>
+  <inst-child
+    [surnameProps]="surname"
+    [city]="city"
+    [address]="address"
+    (sendGradeEvent)="getGrade($event)"
+  ></inst-child>
 </div>

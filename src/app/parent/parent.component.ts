@@ -59,4 +59,12 @@ export class ParentComponent {
       ],
     },
   ]
+
+  isLoading = true
+
+  constructor() {
+    setTimeout(() => {
+      this.isLoading = false
+    }, 3000)
+  }
 }

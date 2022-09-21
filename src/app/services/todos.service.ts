@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core'
-import { HttpClient } from '@angular/common/http'
-import { BehaviorSubject, map } from 'rxjs'
+import { HttpClient, HttpErrorResponse } from '@angular/common/http'
+import { BehaviorSubject, catchError, EMPTY, map } from 'rxjs'
 import { environment } from '../../environments/environment'
+import { LogService } from './log.service'
 
 export interface Todo {
   addedDate: string
@@ -21,7 +22,7 @@ export interface BaseResponse<T = {}> {
   providedIn: 'root',
 })
 export class TodosService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private logService: LogService) {}
 
   todos$: BehaviorSubject<Todo[]> = new BehaviorSubject<Todo[]>([])
 
@@ -35,9 +36,17 @@ export class TodosService {
   }
 
   getTodos() {
-    this.http.get<Todo[]>(`${this.baseURL}/todo-lists`, this.httpOptions).subscribe(todos => {
-      this.todos$.next(todos)
-    })
+    this.http
+      .get<Todo[]>(`${this.baseURL}/todo-lists`, this.httpOptions)
+      .pipe(
+        catchError((error: HttpErrorResponse) => {
+          this.logService.log(error.message, 'error')
+          return EMPTY
+        })
+      )
+      .subscribe(todos => {
+        this.todos$.next(todos)
+      })
   }
 
   createTodo(title: string) {

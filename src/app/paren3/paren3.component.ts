@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { ValueService } from '../services/value.service'
 import { Observable } from 'rxjs'
+import { LogService } from '../services/log.service'
 
 @Component({
   selector: 'inst-paren3',
@@ -8,7 +9,7 @@ import { Observable } from 'rxjs'
   styleUrls: ['./paren3.component.scss'],
 })
 export class Paren3Component implements OnInit {
-  constructor(private valueService: ValueService) {}
+  constructor(private valueService: ValueService, private logService: LogService) {}
 
   // public test = 1
 
@@ -24,9 +25,11 @@ export class Paren3Component implements OnInit {
 
   addValueHandler() {
     this.valueService.add()
+    this.logService.log('add + 1', 'success')
   }
 
   decValueHandler() {
     this.valueService.dec()
+    this.logService.log('dec - 1', 'warning')
   }
 }

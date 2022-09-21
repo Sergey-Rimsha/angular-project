@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { ValueService } from '../services/value.service'
+import { Observable } from 'rxjs'
 
 @Component({
   selector: 'inst-paren3',
@@ -9,12 +10,16 @@ import { ValueService } from '../services/value.service'
 export class Paren3Component implements OnInit {
   constructor(private valueService: ValueService) {}
 
-  public test = 1
+  // public test = 1
+
+  test$ = new Observable()
 
   ngOnInit(): void {
-    this.valueService.value$.subscribe(value => {
-      this.test = value
-    })
+    // this.valueService.value$.subscribe(value => {
+    //   this.test = value
+    // })
+
+    this.test$ = this.valueService.value$
   }
 
   addValueHandler() {

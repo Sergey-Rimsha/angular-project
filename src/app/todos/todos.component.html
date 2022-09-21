@@ -1,1 +1,12 @@
-<p>todos works!</p>
+<div>
+  <h2>todos component</h2>
+
+  <div *ngFor="let el of todos">
+    <div>{{ el.title }} -- {{ el.id }}</div>
+    <button (click)="onClickHandlerDeleteTodo(el.id)">delete</button>
+  </div>
+  <div>
+    <h3>new todo</h3>
+    <button (click)="createTodo()">create todo</button>
+  </div>
+</div>

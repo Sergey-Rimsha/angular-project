@@ -4,7 +4,7 @@
   <div *ngIf="!!error; else content">{{ error }}</div>
 
   <ng-template #content>
-    <div *ngFor="let el of todos">
+    <div *ngFor="let el of todos$ | async">
       <div>{{ el.title }} -- {{ el.id }}</div>
       <button (click)="onClickHandlerDeleteTodo(el.id)">delete</button>
     </div>
